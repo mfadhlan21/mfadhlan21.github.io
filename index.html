@@ -3,51 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name - Portfolio</title>
+  <title>Muhammad Fadhlan Anshor - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    :root {
+      --main-color: #007acc;
+      --bg-color: #fefefe;
+      --text-color: #333;
+    }
+
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
       padding: 2rem;
-      background-color: #f4f4f4;
-      color: #333;
     }
 
     header {
       text-align: center;
-      padding-bottom: 1rem;
+      padding: 3rem 1rem;
+      animation: fadeIn 1.5s ease-in-out;
     }
 
-    h1 {
-      margin-bottom: 0.2rem;
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--main-color);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #666;
+    }
+
+    nav {
+      margin-top: 1.5rem;
     }
 
     nav a {
-      margin: 0 1rem;
       text-decoration: none;
-      color: #007acc;
+      color: var(--main-color);
+      margin: 0 1rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #005a99;
     }
 
     section {
-      margin-top: 2rem;
       max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    section h2 {
+      color: var(--main-color);
+      margin-bottom: 1rem;
     }
 
     footer {
       text-align: center;
       margin-top: 3rem;
       font-size: 0.9rem;
-      color: #777;
+      color: #999;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Your Name</h1>
-    <p>Welcome to my personal website!</p>
+    <h1>Muhammad Fadhlan Anshor</h1>
+    <p>PhD Student</p>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
@@ -58,23 +109,24 @@
   <section id="about">
     <h2>About Me</h2>
     <p>
-      I’m a [Your Role/Title] based in [Location]. I’m passionate about [interest or field],
-      and I love building cool stuff with code.
+      I’m a 1st year PhD student based in Osaka. Currently exploring the world of machine learning in computational science.
     </p>
   </section>
 
   <section id="projects">
-    <h2>Projects</h2>
+    <h2>Featured Projects</h2>
     <ul>
-      <li><strong>Project One</strong> – A short description of your project.</li>
-      <li><strong>Project Two</strong> – Another project you’ve worked on.</li>
+      <li><strong>Project One</strong> — A portfolio site built with HTML and CSS.</li>
+      <li><strong>Project Two</strong> — A personal blog powered by Jekyll and GitHub Pages.</li>
+      <li><strong>Project Three</strong> — An open-source contribution to [Project Name].</li>
     </ul>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a></p>
+    <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
   </section>
 
   <footer>

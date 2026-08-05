@@ -9,4 +9,23 @@ module load BaseGCC/2025
 module load gcc/11.4.0 cuda/12.6
 module load cudnn/9.8.0.87 
 NVCCW=$(realpath ../lib/kokkos/bin/nvcc_wrapper)
-cmake -D CMAKE_BUILD_TYPE=Release   -D CMAKE_CXX_STANDARD=20 -D CMAKE_CXX_STANDARD_REQUIRED=ON   -D CMAKE_CXX_COMPILER="$NVCCW"   -D CMAKE_C_COMPILER=$(which gcc)   -D CMAKE_CXX_FLAGS="${CMAKE_CXX_FLAGS} -march=native -ffast-math"   -D BUILD_SHARED_LIBS=ON -D BUILD_OMP=ON -D BUILD_MPI=ON   -D PKG_KOKKOS=ON -D PKG_EXTRA-PAIR=ON   -D Kokkos_ENABLE_SERIAL=ON -D Kokkos_ENABLE_OPENMP=ON   -D Kokkos_ENABLE_CUDA=ON -D Kokkos_ARCH_AMPERE80=ON   -D Kokkos_ENABLE_AGGRESSIVE_VECTORIZATION=ON   -D SYMMETRIX_KOKKOS=ON -D SYMMETRIX_SPHERICART_CUDA=ON   ../cmake
+cmake -D CMAKE_BUILD_TYPE=Release \
+      -D CMAKE_CXX_STANDARD=20 \
+      -D CMAKE_CXX_STANDARD_REQUIRED=ON \
+      -D CMAKE_CXX_COMPILER="$NVCCW" \
+      -D CMAKE_C_COMPILER=$(which gcc) \
+      -D CMAKE_CXX_FLAGS="${CMAKE_CXX_FLAGS} -march=native -ffast-math" \
+      -D BUILD_SHARED_LIBS=ON -D BUILD_OMP=ON \
+      -D BUILD_MPI=ON \
+      -D PKG_KOKKOS=ON \
+      -D PKG_EXTRA-PAIR=ON \
+      -D PKG_PLUMED=ON \
+      -D DOWNLOAD_PLUMED=yes \
+      -D Kokkos_ENABLE_SERIAL=ON \
+      -D Kokkos_ENABLE_OPENMP=ON \
+      -D Kokkos_ENABLE_CUDA=ON \
+      -D Kokkos_ARCH_AMPERE80=ON \
+      -D Kokkos_ENABLE_AGGRESSIVE_VECTORIZATION=ON \
+      -D SYMMETRIX_KOKKOS=ON \
+      -D SYMMETRIX_SPHERICART_CUDA=ON \
+      ../cmake

@@ -1,1 +1,53 @@
-module load cuda/12.4 gcc/12
+module load cuda/12.4 compiler-rt gcc/12.2.0 openmpi_gcc_8.5.0_cuda_12.4/4.1.8 tbb/2021.12 
+module load mkl/2024.1
+
+conda create --name mace2 python=3.10
+#install torch cuda12.4
+torch --index-url https://download.pytorch.org/whl/cu12
+pip install cuequivariance cuequivariance-torch cuequivariance-ops-torch-cu12
+#install mace
+pip install mace-torch
+pip install python
+
+git clone --recursive https://github.com/wcwitt/symmetrix
+cd symmetrix/symmetrix
+nano pyproject.toml
+pip install scikit-build-core cmake ninja pybind11
+qsub -I -q i1accs -l select=1:ncpus=8:ngpus=1 -l walltime=00:30:00
+pip install . --no-build-isolation --config-settings=cmake.define.Kokkos_ARCH_AMPERE80=ON
+
+git clone -b release https://github.com/lammps/lammps lammps-symmetrix
+cd ~/lammps-symmetrix/
+mkdir build
+
+cd ~/symmetrix/pair_symmetrix
+./install.sh ../../lammps-symmetrix/
+cd ~/lammps-symmetrix/build
+
+conda install -c conda-forge gsl -y
+
+NVCCW=$(realpath ../lib/kokkos/bin/nvcc_wrapper)
+cmake -D CMAKE_BUILD_TYPE=Release \
+      -D CMAKE_CXX_STANDARD=20 \
+      -D CMAKE_CXX_STANDARD_REQUIRED=ON \
+      -D CMAKE_CXX_COMPILER="$NVCCW" \
+      -D CMAKE_C_COMPILER=$(which gcc) \
+      -D CMAKE_CXX_FLAGS="${CMAKE_CXX_FLAGS} -march=native -ffast-math" \
+      -D BUILD_SHARED_LIBS=ON -D BUILD_OMP=ON \
+      -D BUILD_MPI=ON \
+      -D PKG_KOKKOS=ON \
+      -D PKG_EXTRA-PAIR=ON \
+      -D PKG_PLUMED=ON \
+      -D DOWNLOAD_PLUMED=yes \
+      -D GSL_INCLUDE_DIR=$CONDA_PREFIX/include \
+      -D GSL_LIBRARY=$CONDA_PREFIX/lib/libgsl.so \
+      -D GSL_CBLAS_LIBRARY=$CONDA_PREFIX/lib/libgslcblas.so \
+      -D Kokkos_ENABLE_SERIAL=ON \
+      -D Kokkos_ENABLE_OPENMP=ON \
+      -D Kokkos_ENABLE_CUDA=ON \
+      -D Kokkos_ARCH_AMPERE80=ON \
+      -D Kokkos_ENABLE_AGGRESSIVE_VECTORIZATION=ON \
+      -D SYMMETRIX_KOKKOS=ON \
+      -D SYMMETRIX_SPHERICART_CUDA=ON \
+      ../cmake
+make install -j 8

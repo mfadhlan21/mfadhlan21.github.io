@@ -1,5 +1,7 @@
 #!/bin/bash
 
+conda install -c conda-forge gsl -y
+
 NVCCW=$(realpath ../lib/kokkos/bin/nvcc_wrapper)
 cmake \
     -D CMAKE_BUILD_TYPE=Release \

@@ -16,6 +16,9 @@ cmake \
     -D PKG_EXTRA-PAIR=ON \
     -D PKG_PLUMED=ON \
     -D DOWNLOAD_PLUMED=yes \
+    -D GSL_INCLUDE_DIR=$CONDA_PREFIX/include \
+    -D GSL_LIBRARY=$CONDA_PREFIX/lib/libgsl.so \
+    -D GSL_CBLAS_LIBRARY=$CONDA_PREFIX/lib/libgslcblas.so \
     -D Kokkos_ENABLE_SERIAL=ON \
     -D Kokkos_ENABLE_OPENMP=ON \
     -D Kokkos_ARCH_NATIVE=ON \

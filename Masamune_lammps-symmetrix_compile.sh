@@ -12,6 +12,8 @@ cmake \
     -D BUILD_MPI=ON \
     -D PKG_KOKKOS=ON \
     -D PKG_EXTRA-PAIR=ON \
+    -D PKG_PLUMED=ON \
+    -D DOWNLOAD_PLUMED=yes \
     -D Kokkos_ENABLE_SERIAL=ON \
     -D Kokkos_ENABLE_OPENMP=ON \
     -D Kokkos_ARCH_NATIVE=ON \

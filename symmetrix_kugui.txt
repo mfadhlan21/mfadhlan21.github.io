@@ -3,7 +3,7 @@ module load mkl/2024.1
 
 conda create --name mace2 python=3.10
 #install torch cuda12.4
-torch --index-url https://download.pytorch.org/whl/cu12
+pip install torch --index-url https://download.pytorch.org/whl/cu12
 pip install cuequivariance cuequivariance-torch cuequivariance-ops-torch-cu12
 #install mace
 pip install mace-torch

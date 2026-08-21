@@ -25,6 +25,7 @@ cd ~/symmetrix/pair_symmetrix
 cd ~/lammps-symmetrix/build
 
 conda install -c conda-forge gsl -y
+conda install make
 
 NVCCW=$(realpath ../lib/kokkos/bin/nvcc_wrapper)
 cmake -D CMAKE_BUILD_TYPE=Release \

@@ -1,13 +1,15 @@
 #!/bin/sh
-#PBS -q SQUID
+#PBS -q DBG
 #PBS --group=K2613
-#PBS -l elapstim_req=3:00:00
-#PBS -l gpunum_job=1
-#PBS -N md_flat_no_defect_1DOM
+#PBS -l elapstim_req=00:10:00
+#PBS -b 1
+#PBS -l gpunum_job=8
+#PBS -N md.8gpu
 #PBS -T openmpi
 #PBS -v NQSV_MPI_MODULE=BaseGPU/2025:BaseGCC/2025:gcc/11.4.0:cudnn/9.8.0.87
 
 source ~/.bash_profile
+#conda deactivate
 conda activate mace
 
 module load BaseGPU/2025
@@ -26,5 +28,8 @@ PY
 
 cd $PBS_O_WORKDIR
 
+#LAMMPS_CMD=/sqfs/home/z6b781/work/lammps-mliap/build/lmp
 LAMMPS_CMD=/sqfs/home/u6d174/work/lammps-symmetrix/build/lmp
-mpirun ${NQSV_MPIOPTS} -np 1 $LAMMPS_CMD -k on g 1 -sf kk -pk kokkos newton on neigh half -in lammps.in
+mpirun ${NQSV_MPIOPTS} -np 8 $LAMMPS_CMD -k on g 8 -sf kk -pk kokkos newton on neigh half -in lammps.in
+
+mv log.lammps log.lammps_8GPU_sym

@@ -3,133 +3,1670 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Muhammad Fadhlan Anshor - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <title>Muhammad Fadhlan Anshor · Researcher &amp; Photographer</title>
+  <meta name="description" content="Muhammad Fadhlan Anshor is a PhD student at The University of Osaka working on machine-learning interatomic potentials and multiscale simulation of heterogeneous catalysts. Also a photographer." />
+  <meta name="author" content="Muhammad Fadhlan Anshor" />
+  <link rel="canonical" href="https://mfadhlan21.github.io/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mfadhlan21.github.io/" />
+  <meta property="og:title" content="Muhammad Fadhlan Anshor · Researcher &amp; Photographer" />
+  <meta property="og:description" content="PhD student at The University of Osaka working on machine-learning interatomic potentials and multiscale simulation of heterogeneous catalysts. Also a photographer." />
+  <meta name="twitter:card" content="summary" />
+
+  <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#121211" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Favicon: a Cu7 cluster that doubles as a lens aperture -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cstyle%3E.i%7Bfill:%23161514%7D.c%7Bfill:%23b8703f%7D@media(prefers-color-scheme:dark)%7B.i%7Bfill:%23f2f0eb%7D.c%7Bfill:%23d08a55%7D%7D%3C/style%3E%3Ccircle class='c' cx='12' cy='12' r='3.3'/%3E%3Cg class='i'%3E%3Ccircle cx='19' cy='12' r='3.3'/%3E%3Ccircle cx='5' cy='12' r='3.3'/%3E%3Ccircle cx='15.5' cy='18.06' r='3.3'/%3E%3Ccircle cx='8.5' cy='18.06' r='3.3'/%3E%3Ccircle cx='15.5' cy='5.94' r='3.3'/%3E%3Ccircle cx='8.5' cy='5.94' r='3.3'/%3E%3C/g%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+
+  <script>document.documentElement.classList.add('js');</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Muhammad Fadhlan Anshor",
+    "url": "https://mfadhlan21.github.io/",
+    "jobTitle": "PhD Student",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "The University of Osaka"
+    },
+    "email": "mailto:mfadhlan@cp.prec.eng.osaka-u.ac.jp",
+    "sameAs": [
+      "https://github.com/mfadhlan21",
+      "https://www.linkedin.com/in/muhammad-fadhlan-anshor-007919164"
+    ],
+    "knowsAbout": [
+      "Machine learning interatomic potentials",
+      "Multiscale simulation",
+      "Heterogeneous catalysis",
+      "Photography"
+    ]
+  }
+  </script>
+
   <style>
+    /* ---------- Design tokens ---------- */
     :root {
-      --main-color: #007acc;
-      --bg-color: #fefefe;
-      --text-color: #333;
+      --bg: #faf9f6;          /* paper */
+      --bg-elev: #f2f0eb;
+      --ink: #161514;         /* headings */
+      --text: #3a3834;        /* body copy */
+      --muted: #6b675f;
+      --line: #e4e1da;
+      --line-strong: #cdc8be;
+      --accent: #b8703f;      /* copper: Cu catalysts and copper-toned prints */
+      --accent-ink: #9a5427;  /* copper that is readable as text */
+
+      --dark-bg: #141413;     /* the darkroom */
+      --dark-elev: #1c1c1a;
+      --dark-ink: #f2f0eb;
+      --dark-text: #d2cfc8;
+      --dark-muted: #9c988f;
+      --dark-line: #2c2b28;
+      --dark-accent-ink: #de9c6b;
+
+      --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+      --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+      --maxw: 1120px;
+      --gutter: clamp(1.25rem, 4vw, 2.5rem);
+      --header-h: 4rem;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121211;
+        --bg-elev: #1b1b19;
+        --ink: #f2f0eb;
+        --text: #d6d3cc;
+        --muted: #9d9990;
+        --line: #2a2926;
+        --line-strong: #45433e;
+        --accent: #c98553;
+        --accent-ink: #de9c6b;
+
+        --dark-bg: #0a0a09;
+        --dark-elev: #151514;
+        --dark-line: #262523;
+      }
+    }
+
+    /* ---------- Base ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    * { margin: 0; }
+    [hidden] { display: none !important; }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scroll-padding-top: calc(var(--header-h) + 1rem);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      padding: 2rem;
+      font-family: var(--sans);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    header {
-      text-align: center;
-      padding: 3rem 1rem;
-      animation: fadeIn 1.5s ease-in-out;
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    ul, ol { padding: 0; list-style: none; }
+    sub { font-size: .7em; line-height: 0; }
+
+    ::selection { background: color-mix(in srgb, var(--accent) 28%, transparent); }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      color: var(--main-color);
+    .sprite {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
     }
 
-    header p {
-      font-size: 1.2rem;
-      color: #666;
+    .icon {
+      width: 1.05em;
+      height: 1.05em;
+      flex: none;
+      display: inline-block;
+      vertical-align: -0.15em;
     }
 
-    nav {
-      margin-top: 1.5rem;
+    .container {
+      width: min(100% - 2 * var(--gutter), var(--maxw));
+      margin-inline: auto;
     }
 
-    nav a {
+    .skip-link {
+      position: absolute;
+      left: var(--gutter);
+      top: -4rem;
+      z-index: 100;
+      padding: .6rem 1rem;
+      background: var(--ink);
+      color: var(--bg);
+      border-radius: 4px;
       text-decoration: none;
-      color: var(--main-color);
-      margin: 0 1rem;
-      font-weight: bold;
-      transition: color 0.3s;
     }
 
-    nav a:hover {
-      color: #005a99;
+    .skip-link:focus { top: .75rem; }
+
+    .mono {
+      font-family: var(--mono);
+      font-size: .75rem;
+      letter-spacing: .06em;
     }
 
-    section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
+    .link {
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: .22em;
+      transition: color .2s ease;
     }
 
-    section h2 {
-      color: var(--main-color);
-      margin-bottom: 1rem;
+    .link:hover { color: var(--accent-ink); }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg);
+      background: color-mix(in srgb, var(--bg) 94%, transparent);
+      -webkit-backdrop-filter: saturate(160%) blur(12px);
+      backdrop-filter: saturate(160%) blur(12px);
+      border-bottom: 1px solid var(--line);
     }
 
-    footer {
-      text-align: center;
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      height: var(--header-h);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .65rem;
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--ink);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand-mark { width: 1.35rem; height: 1.35rem; }
+    .brand-mark .core { fill: var(--accent); }
+    .brand-mark .ring { fill: currentColor; }
+
+    .nav-list {
+      display: flex;
+      gap: clamp(1.1rem, 2.4vw, 2rem);
+    }
+
+    .nav-list a {
+      font-size: .9rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .nav-list a:hover { color: var(--ink); }
+
+    .nav-toggle {
+      display: none;
+      align-items: center;
+      gap: .5rem;
+      height: 2.5rem;
+      padding: 0 .9rem;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--ink);
+      font: 500 .8rem/1 var(--sans);
+      cursor: pointer;
+    }
+
+    /* ---------- Buttons & chips ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      height: 2.75rem;
+      padding: 0 1.2rem;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      font-size: .95rem;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+    }
+
+    .btn:hover { border-color: var(--ink); }
+
+    .btn-primary {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-ink);
+      border-color: var(--accent-ink);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      height: 2rem;
+      padding: 0 .8rem;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      background: transparent;
+      font-family: var(--mono);
+      font-size: .72rem;
+      letter-spacing: .04em;
+      color: var(--ink);
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color .2s ease, color .2s ease;
+    }
+
+    .chip:hover { border-color: var(--ink); }
+    .chip .icon { width: .95em; height: .95em; }
+    .chip[aria-expanded="true"] .icon { transform: rotate(180deg); }
+
+    /* ---------- Hero ---------- */
+    .hero { padding-block: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 4vw, 3rem); }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      align-items: center;
+      gap: clamp(2.5rem, 6vw, 5.5rem);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      font-family: var(--mono);
+      font-size: .75rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 1.75rem;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      margin: 1.25rem 0 1.5rem;
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(2.75rem, 6.2vw, 4.6rem);
+      line-height: 1.02;
+      letter-spacing: -.022em;
+      color: var(--ink);
+    }
+
+    .lead {
+      max-width: 40ch;
+      font-size: clamp(1.1rem, 1.7vw, 1.3rem);
+      line-height: 1.55;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 2.25rem;
+    }
+
+    .latest {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: .35rem 1rem;
+      max-width: 36rem;
+      margin-top: 2.75rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--line);
+      font-size: .92rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .latest-label {
+      font-family: var(--mono);
+      font-size: .7rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent-ink);
+      white-space: nowrap;
+    }
+
+    .latest-text { transition: color .2s ease; }
+    .latest:hover .latest-text { color: var(--ink); }
+
+    .latest .icon {
+      align-self: center;
+      color: var(--muted);
+      transition: transform .2s ease, color .2s ease;
+    }
+
+    .latest:hover .icon { color: var(--accent-ink); transform: translateX(3px); }
+
+    /* Fig. 1: the research system, framed like a photograph */
+    .plate {
+      width: 100%;
+      max-width: 27.5rem;
+      justify-self: end;
+    }
+
+    .plate-frame {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #0f0f0e;
+      box-shadow: 0 0 0 1px var(--line), 0 30px 60px -30px rgba(20, 16, 12, .45);
+    }
+
+    .plate-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .plate-img .scale-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .06em;
+      fill: #f2f0eb;
+    }
+
+    /* viewfinder corner marks */
+    .viewfinder {
+      position: absolute;
+      inset: 14px;
+      pointer-events: none;
+      --c: rgba(255, 255, 255, .6);
+      --len: 18px;
+      --w: 1.5px;
+      background:
+        linear-gradient(var(--c) 0 0) 0 0 / var(--len) var(--w),
+        linear-gradient(var(--c) 0 0) 0 0 / var(--w) var(--len),
+        linear-gradient(var(--c) 0 0) 100% 0 / var(--len) var(--w),
+        linear-gradient(var(--c) 0 0) 100% 0 / var(--w) var(--len),
+        linear-gradient(var(--c) 0 0) 0 100% / var(--len) var(--w),
+        linear-gradient(var(--c) 0 0) 0 100% / var(--w) var(--len),
+        linear-gradient(var(--c) 0 0) 100% 100% / var(--len) var(--w),
+        linear-gradient(var(--c) 0 0) 100% 100% / var(--w) var(--len);
+      background-repeat: no-repeat;
+    }
+
+    .plate figcaption {
+      display: flex;
+      gap: .9rem;
+      margin-top: 1rem;
+      font-size: .875rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .fig-label {
+      flex: none;
+      padding-top: .12rem;
+      font-family: var(--mono);
+      font-size: .72rem;
+      letter-spacing: .06em;
+      color: var(--ink);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .plate-img { animation: focus-pull 1.6s cubic-bezier(.2, .7, .2, 1) .15s both; }
+
+      @keyframes focus-pull {
+        from { filter: blur(9px); transform: scale(1.04); }
+        to { filter: blur(0); transform: none; }
+      }
+    }
+
+    /* ---------- Sections ---------- */
+    .section { padding-block: clamp(3.5rem, 8vw, 6.5rem) 0; }
+    .section:last-of-type { padding-bottom: clamp(4rem, 9vw, 7rem); }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+      gap: 1.75rem clamp(2rem, 5vw, 4rem);
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      position: sticky;
+      top: calc(var(--header-h) + 2rem);
+      align-self: start;
+      display: flex;
+      align-items: baseline;
+      gap: .8rem;
+      font-family: var(--mono);
+      font-size: .75rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .section-no { color: var(--accent-ink); }
+
+    .section-head h2 {
+      font: inherit;
+      color: var(--ink);
+    }
+
+    .deck {
+      max-width: 22ch;
+      margin-bottom: 1.75rem;
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(2rem, 4.2vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -.018em;
+      color: var(--ink);
+    }
+
+    .prose { max-width: 64ch; }
+    .prose p + p { margin-top: 1.1rem; }
+
+    /* About: an EXIF panel, for a person */
+    .spec {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 2.75rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .spec > div {
+      padding: 1rem 1.25rem 1rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .spec dt {
+      margin-bottom: .3rem;
+      font-family: var(--mono);
+      font-size: .68rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .spec dd {
+      font-size: .95rem;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+
+    /* Research */
+    .focus {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
       margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #999;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .focus li {
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--ink);
     }
 
-    /* Mobile responsive */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
+    .focus-no {
+      display: block;
+      margin-bottom: 1.1rem;
+      font-family: var(--mono);
+      font-size: .72rem;
+      letter-spacing: .06em;
+      color: var(--accent-ink);
+    }
+
+    .focus h3 {
+      margin-bottom: .6rem;
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1.3rem;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    .focus p {
+      font-size: .95rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .toolkit {
+      display: grid;
+      gap: 1rem;
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: var(--bg-elev);
+      border-radius: 4px;
+    }
+
+    .toolkit > div {
+      display: grid;
+      grid-template-columns: 6.5rem minmax(0, 1fr);
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .toolkit dt {
+      font-family: var(--mono);
+      font-size: .68rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+    }
+
+    .tags li {
+      padding: .2rem .6rem;
+      border: 1px solid var(--line-strong);
+      border-radius: 3px;
+      background: var(--bg);
+      font-family: var(--mono);
+      font-size: .74rem;
+      color: var(--ink);
+    }
+
+    /* Publications */
+    .pub {
+      display: grid;
+      grid-template-columns: 4.5rem minmax(0, 1fr);
+      gap: 1.5rem;
+      padding-block: 1.75rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .pub:first-child { border-top: 0; padding-top: 0; }
+
+    .pub-year {
+      padding-top: .45rem;
+      font-family: var(--mono);
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    .pub-title {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(1.2rem, 2vw, 1.4rem);
+      line-height: 1.3;
+      color: var(--ink);
+    }
+
+    .pub-title a {
+      text-decoration: none;
+      background-image: linear-gradient(var(--accent), var(--accent));
+      background-size: 0 1px;
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      transition: background-size .35s ease, color .2s ease;
+    }
+
+    .pub-title a:hover { background-size: 100% 1px; }
+
+    .pub-authors { margin-top: .6rem; font-size: .95rem; }
+    .pub-authors strong { font-weight: 600; color: var(--ink); }
+
+    .pub-venue { font-size: .95rem; color: var(--muted); }
+    .pub-venue b { font-weight: 600; color: var(--text); }
+
+    .pub-summary {
+      max-width: 64ch;
+      margin-top: .85rem;
+      font-size: .95rem;
+      color: var(--muted);
+    }
+
+    .pub-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1.1rem;
+    }
+
+    html:not(.js) .bib-toggle { display: none; }
+
+    .bib {
+      position: relative;
+      margin-top: .9rem;
+    }
+
+    .bib pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      padding: 1.1rem 1.25rem;
+      background: var(--bg-elev);
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: .74rem;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .bib-copy {
+      position: absolute;
+      top: .6rem;
+      right: .6rem;
+      height: 1.75rem;
+      background: var(--bg);
+    }
+
+    /* ---------- Photography: the darkroom ---------- */
+    .darkroom {
+      --bg: var(--dark-bg);
+      --bg-elev: var(--dark-elev);
+      --ink: var(--dark-ink);
+      --text: var(--dark-text);
+      --muted: var(--dark-muted);
+      --line: var(--dark-line);
+      --accent-ink: var(--dark-accent-ink);
+      margin-top: clamp(3.5rem, 8vw, 6.5rem);
+      padding-block: clamp(1rem, 3vw, 2rem) clamp(4rem, 9vw, 7rem);
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .darkroom .section-grid { border-top: 0; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1.5rem, 2.5vw, 2rem) clamp(1rem, 2vw, 1.5rem);
+      margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    }
+
+    .shot-frame {
+      position: relative;
+      display: block;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      background: var(--bg-elev);
+      color: #3d3c38;
+      border-radius: 2px;
+    }
+
+    /* empty frame: an aperture waiting for a photo */
+    .shot-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 2.25rem;
+      height: 2.25rem;
+      background: currentColor;
+      transition: opacity .4s ease;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m14.31 8 5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16 3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94'/%3E%3C/svg%3E") center / contain no-repeat;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m14.31 8 5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16 3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+
+    .shot-frame img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity .9s ease, transform .6s ease;
+    }
+
+    /* photos "develop" (fade in) once loaded; missing ones stay as empty frames */
+    html.js .shot:not(.is-loaded) img { opacity: 0; }
+    html.js .shot:not(.is-loaded) :is(.shot-title, .shot-meta) { visibility: hidden; }
+    .shot.is-loaded .shot-frame { cursor: zoom-in; }
+    .shot.is-loaded .shot-frame::before { opacity: 0; }
+    .shot.is-loaded .shot-frame:hover img { transform: scale(1.025); }
+
+    .shot figcaption {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      column-gap: .8rem;
+      margin-top: .8rem;
+      font-size: .9rem;
+      line-height: 1.45;
+    }
+
+    .shot-no {
+      grid-row: span 2;
+      padding-top: .15rem;
+      font-family: var(--mono);
+      font-size: .7rem;
+      color: var(--accent-ink);
+    }
+
+    .shot-title { color: var(--ink); }
+
+    .shot-meta {
+      font-family: var(--mono);
+      font-size: .7rem;
+      letter-spacing: .02em;
+      color: var(--muted);
+    }
+
+    .more-link { margin-top: 2.5rem; }
+
+    /* Lightbox */
+    .lightbox {
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      max-height: none;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: #0c0c0b;
+      color: #d2cfc8;
+    }
+
+    .lightbox::backdrop { background: transparent; }
+    .lightbox[open] { display: grid; place-items: center; }
+    html:has(.lightbox[open]) { overflow: hidden; }
+
+    .lb-figure {
+      display: grid;
+      justify-items: center;
+      gap: 1rem;
+      width: 100%;
+      height: 100%;
+      align-content: center;
+      padding: 4.5rem clamp(1rem, 7vw, 6rem) 2rem;
+    }
+
+    .lb-figure img {
+      max-width: 100%;
+      max-height: calc(100vh - 10rem);
+      max-height: calc(100dvh - 10rem);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .lb-figure figcaption {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: baseline;
+      gap: .25rem .8rem;
+      font-size: .9rem;
+      text-align: center;
+    }
+
+    .lb-figure .shot-no { color: #de9c6b; }
+    .lb-figure .shot-title { color: #f2f0eb; }
+    .lb-figure .shot-meta { color: #9c988f; }
+
+    .lb-btn {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .04);
+      color: #f2f0eb;
+      cursor: pointer;
+      transition: background-color .2s ease, border-color .2s ease;
+    }
+
+    .lb-btn:hover { background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .4); }
+    .lb-btn .icon { width: 1.25rem; height: 1.25rem; }
+    .lb-close { top: 1rem; right: 1rem; }
+    .lb-prev, .lb-next { top: 50%; transform: translateY(-50%); }
+    .lb-prev { left: 1rem; }
+    .lb-next { right: 1rem; }
+
+    /* ---------- Contact ---------- */
+    .email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      max-width: 100%;
+      margin-top: 2rem;
+      font-family: var(--serif);
+      font-size: clamp(1.25rem, 3vw, 1.9rem);
+      line-height: 1.25;
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: .2em;
+      overflow-wrap: anywhere;
+      transition: color .2s ease;
+    }
+
+    .email-link:hover { color: var(--accent-ink); }
+    .email-link .icon { width: .8em; height: .8em; color: var(--accent); }
+
+    .contact-list {
+      max-width: 36rem;
+      margin-top: 2.5rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-list a {
+      display: grid;
+      grid-template-columns: auto 6rem minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 1rem;
+      padding-block: 1rem;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .contact-list .handle {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: .92rem;
+      color: var(--muted);
+      transition: color .2s ease;
+    }
+
+    .contact-list .icon:last-child {
+      color: var(--muted);
+      transition: transform .2s ease, color .2s ease;
+    }
+
+    .contact-list a:hover .handle { color: var(--ink); }
+    .contact-list a:hover .icon:last-child { color: var(--accent-ink); transform: translate(2px, -2px); }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      padding-block: 2rem 2.5rem;
+      border-top: 1px solid var(--line);
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem 2rem;
+    }
+
+    .to-top {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .to-top:hover { color: var(--ink); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .plate { justify-self: start; max-width: 32rem; }
+      .section-grid { grid-template-columns: 1fr; }
+      .section-head { position: static; }
+      .focus { grid-template-columns: 1fr; gap: 1.75rem; }
+      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 720px) {
+      html.js .nav-toggle { display: inline-flex; }
+
+      html.js .nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        padding: .5rem var(--gutter) 1rem;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
       }
 
-      nav a {
+      html.js .site-header.is-open .nav-list { display: flex; }
+
+      html.js .nav-list a {
         display: block;
-        margin: 0.5rem 0;
+        padding: .8rem 0;
+        font-size: 1rem;
+        color: var(--ink);
       }
+
+      html:not(.js) .header-inner {
+        flex-wrap: wrap;
+        height: auto;
+        padding-block: .9rem;
+      }
+
+      html:not(.js) .nav-list { flex-wrap: wrap; gap: .4rem 1.1rem; }
+
+      .spec { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .toolkit > div { grid-template-columns: 1fr; gap: .6rem; }
+      .pub { grid-template-columns: 1fr; gap: .5rem; }
+      .pub-year { padding-top: 0; }
+      .contact-list a { grid-template-columns: auto minmax(0, 1fr) auto; }
+      .contact-list .handle { display: none; }
+    }
+
+    @media (max-width: 560px) {
+      .gallery { grid-template-columns: 1fr; }
+      .latest { grid-template-columns: minmax(0, 1fr) auto; }
+      .latest-label { grid-column: 1 / -1; }
+      .lb-prev, .lb-next { top: auto; bottom: 1rem; transform: none; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Muhammad Fadhlan Anshor</h1>
-    <p>PhD Student | Photographer </p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <!-- Icon sprite (reused with <use href="#i-...">) -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle class="core" cx="12" cy="12" r="3.3"/>
+          <g class="ring">
+            <circle cx="19" cy="12" r="3.3"/><circle cx="5" cy="12" r="3.3"/>
+            <circle cx="15.5" cy="18.06" r="3.3"/><circle cx="8.5" cy="18.06" r="3.3"/>
+            <circle cx="15.5" cy="5.94" r="3.3"/><circle cx="8.5" cy="5.94" r="3.3"/>
+          </g>
+        </svg>
+        <span>M. Fadhlan Anshor</span>
+      </a>
+
+      <nav aria-label="Main">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">
+          <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+          Menu
+        </button>
+        <ul class="nav-list" id="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#photography">Photography</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I’m a 2nd year PhD student based in Osaka, Japan. Currently playing around Machine Learning Interatomic Potentials (MLIP) and multi-scale simulation for heterogeneous catalyst.
-    </p>
-  </section>
+  <main id="main">
 
-  <section id="projects">
-    <h2>Publications</h2>
-    <ul>
-      <li><strong>Project One</strong> — CO coadsorption effects on the water–gas shift reaction over Cu clusters on Cu(111): insights from the machine learning force field and microkinetic modeling (DOI:<a href="https://doi.org/10.1039/D5CP05031F" target="_blank">10.1039/D5CP05031F</a>)</li>
-    </ul>
-  </section>
+    <!-- ================= Hero ================= -->
+    <section class="hero" aria-label="Introduction">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">PhD Student · The University of Osaka</p>
+          <h1>Muhammad Fadhlan Anshor</h1>
+          <p class="lead">
+            I study heterogeneous catalysis with machine-learning interatomic potentials and
+            multiscale simulation. Away from the terminal, I’m usually behind a camera.
+          </p>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:mfadhlan@cp.prec.eng.osaka-u.ac.jp">mfadhlan@cp.prec.eng.osaka-u.ac.jp</a></p>
-    <p>GitHub: <a href="https://github.com/mfadhlan21" target="_blank">mfadhlan21</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/muhammad-fadhlan-anshor-007919164" target="_blank">muhammad-fadhlan-anshor-007919164</a></p>
-  </section>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:mfadhlan@cp.prec.eng.osaka-u.ac.jp">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+              Get in touch
+            </a>
+            <a class="btn" href="https://github.com/mfadhlan21" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+              GitHub
+            </a>
+            <a class="btn" href="https://www.linkedin.com/in/muhammad-fadhlan-anshor-007919164" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
+              LinkedIn
+            </a>
+          </div>
 
-  <footer>
-    &copy; 2026 Muhammad Fadhlan Anshor. All rights reserved.
+          <a class="latest" href="#publications">
+            <span class="latest-label">Latest paper</span>
+            <span class="latest-text">CO coadsorption effects on the water–gas shift reaction over Cu clusters on Cu(111) · <i>PCCP</i>, 2026</span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </a>
+        </div>
+
+        <!-- Fig. 1: a Cu7 cluster with adsorbed CO on Cu(111), "photographed" with a shallow depth of field -->
+        <figure class="plate">
+          <div class="plate-frame">
+            <svg class="plate-img" viewBox="0 0 400 500" role="img" aria-labelledby="plate-title plate-desc">
+              <title id="plate-title">Schematic of a Cu₇ cluster on a Cu(111) surface</title>
+              <desc id="plate-desc">Seven copper atoms form a hexagonal cluster, with three carbon monoxide molecules attached, on a close-packed copper surface. The cluster is sharp while the surrounding surface blurs away, like a photograph with a shallow depth of field.</desc>
+              <defs>
+                <radialGradient id="atom" cx=".36" cy=".32" r=".75">
+                  <stop offset="0" stop-color="#f1efea"/>
+                  <stop offset=".45" stop-color="#a6a29a"/>
+                  <stop offset="1" stop-color="#33322e"/>
+                </radialGradient>
+                <radialGradient id="atom-deep" cx=".36" cy=".32" r=".75">
+                  <stop offset="0" stop-color="#5f5c56"/>
+                  <stop offset="1" stop-color="#191918"/>
+                </radialGradient>
+                <radialGradient id="atom-cu" cx=".36" cy=".32" r=".75">
+                  <stop offset="0" stop-color="#ffe2c4"/>
+                  <stop offset=".42" stop-color="#d08a55"/>
+                  <stop offset="1" stop-color="#57290e"/>
+                </radialGradient>
+                <radialGradient id="atom-c" cx=".36" cy=".32" r=".75">
+                  <stop offset="0" stop-color="#8f8b84"/>
+                  <stop offset="1" stop-color="#1c1b19"/>
+                </radialGradient>
+                <radialGradient id="atom-o" cx=".36" cy=".32" r=".75">
+                  <stop offset="0" stop-color="#ffc0b0"/>
+                  <stop offset=".45" stop-color="#c9503f"/>
+                  <stop offset="1" stop-color="#561810"/>
+                </radialGradient>
+                <!-- Cu(111): close-packed top layer, second layer visible in the hollows -->
+                <pattern id="cu111" width="40" height="69.282" patternUnits="userSpaceOnUse">
+                  <g fill="url(#atom-deep)">
+                    <circle cx="20" cy="11.547" r="17"/>
+                    <circle cx="0" cy="46.188" r="17"/>
+                    <circle cx="40" cy="46.188" r="17"/>
+                  </g>
+                  <g fill="url(#atom)">
+                    <circle cx="0" cy="0" r="18.4"/>
+                    <circle cx="40" cy="0" r="18.4"/>
+                    <circle cx="20" cy="34.641" r="18.4"/>
+                    <circle cx="0" cy="69.282" r="18.4"/>
+                    <circle cx="40" cy="69.282" r="18.4"/>
+                  </g>
+                </pattern>
+                <filter id="defocus" x="-10%" y="-10%" width="120%" height="120%">
+                  <feGaussianBlur stdDeviation="2.8"/>
+                </filter>
+                <filter id="lift" x="-50%" y="-50%" width="200%" height="200%">
+                  <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity=".55"/>
+                </filter>
+                <!-- depth of field: sharp around the cluster, soft towards the edges -->
+                <radialGradient id="dof" cx="260" cy="196.3" r="210" gradientUnits="userSpaceOnUse">
+                  <stop offset=".28" stop-color="#fff"/>
+                  <stop offset="1" stop-color="#000"/>
+                </radialGradient>
+                <mask id="in-focus" maskUnits="userSpaceOnUse" x="-20" y="-20" width="440" height="540">
+                  <rect x="-20" y="-20" width="440" height="540" fill="url(#dof)"/>
+                </mask>
+                <radialGradient id="vignette" cx=".6" cy=".4" r=".85">
+                  <stop offset=".45" stop-color="#000" stop-opacity="0"/>
+                  <stop offset="1" stop-color="#000" stop-opacity=".62"/>
+                </radialGradient>
+              </defs>
+
+              <rect width="400" height="500" fill="#0f0f0e"/>
+              <rect x="-20" y="-20" width="440" height="540" fill="url(#cu111)" filter="url(#defocus)"/>
+              <rect x="-20" y="-20" width="440" height="540" fill="url(#cu111)" mask="url(#in-focus)"/>
+
+              <!-- CO on the terraces, out of focus -->
+              <g filter="url(#defocus)">
+                <circle cx="62" cy="106" r="8.5" fill="url(#atom-c)"/><circle cx="60" cy="103.9" r="9.5" fill="url(#atom-o)"/>
+                <circle cx="362" cy="71.4" r="8.5" fill="url(#atom-c)"/><circle cx="360" cy="69.3" r="9.5" fill="url(#atom-o)"/>
+                <circle cx="342" cy="383.2" r="8.5" fill="url(#atom-c)"/><circle cx="340" cy="381.1" r="9.5" fill="url(#atom-o)"/>
+                <circle cx="102" cy="452.4" r="8.5" fill="url(#atom-c)"/><circle cx="100" cy="450.3" r="9.5" fill="url(#atom-o)"/>
+              </g>
+
+              <!-- Cu7 cluster in fcc hollow sites -->
+              <g fill="url(#atom-cu)" filter="url(#lift)">
+                <circle cx="240" cy="161.658" r="18.4"/>
+                <circle cx="280" cy="161.658" r="18.4"/>
+                <circle cx="220" cy="196.299" r="18.4"/>
+                <circle cx="260" cy="196.299" r="18.4"/>
+                <circle cx="300" cy="196.299" r="18.4"/>
+                <circle cx="240" cy="230.940" r="18.4"/>
+                <circle cx="280" cy="230.940" r="18.4"/>
+              </g>
+
+              <!-- CO adsorbed on the cluster edge, tilted outwards -->
+              <g filter="url(#lift)">
+                <circle cx="307" cy="196.299" r="8.5" fill="url(#atom-c)"/><circle cx="315" cy="196.299" r="9.5" fill="url(#atom-o)"/>
+                <circle cx="236.5" cy="237.0" r="8.5" fill="url(#atom-c)"/><circle cx="232.5" cy="243.93" r="9.5" fill="url(#atom-o)"/>
+                <circle cx="236.5" cy="155.6" r="8.5" fill="url(#atom-c)"/><circle cx="232.5" cy="148.67" r="9.5" fill="url(#atom-o)"/>
+              </g>
+
+              <rect width="400" height="500" fill="url(#vignette)"/>
+
+              <!-- autofocus brackets -->
+              <path d="M178 130v-16h16M326 114h16v16M342 262v16h-16M194 278h-16v-16" fill="none" stroke="#fff" stroke-opacity=".85" stroke-width="1.5"/>
+
+              <!-- scale bar: 5 Å (Cu–Cu = 2.56 Å = 40 units) -->
+              <path d="M30 467h78.2M30 462v10M108.2 462v10" fill="none" stroke="#f2f0eb" stroke-width="1.5"/>
+              <text class="scale-label" x="30" y="453">5 Å</text>
+            </svg>
+            <span class="viewfinder" aria-hidden="true"></span>
+          </div>
+          <figcaption>
+            <span class="fig-label">Fig. 1</span>
+            <span>A Cu<sub>7</sub> cluster with adsorbed CO on Cu(111), the system from my latest paper, rendered with a photographer’s shallow depth of field.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= 01 About ================= -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container section-grid">
+        <header class="section-head">
+          <span class="section-no">01</span>
+          <h2 id="about-title">About</h2>
+        </header>
+
+        <div>
+          <p class="deck">Two ways of looking closely.</p>
+          <div class="prose">
+            <p>
+              I’m a second-year PhD student in the Department of Precision Engineering at
+              The University of Osaka, Japan. My research sits where machine learning meets
+              computational chemistry: I use machine-learning interatomic potentials (MLIPs) and
+              multiscale simulation to understand how heterogeneous catalysts behave under
+              realistic reaction conditions.
+            </p>
+            <p>
+              I’m also a photographer. Research and photography ask for the same habits (patience,
+              careful observation and an eye for structure), and each keeps the other sharp.
+            </p>
+          </div>
+
+          <dl class="spec">
+            <div><dt>Position</dt><dd>PhD student, 2nd year</dd></div>
+            <div><dt>Department</dt><dd>Precision Engineering</dd></div>
+            <div><dt>University</dt><dd>The University of Osaka</dd></div>
+            <div><dt>Based in</dt><dd>Osaka, Japan</dd></div>
+            <div><dt>Focus</dt><dd>MLIPs · multiscale simulation · catalysis</dd></div>
+            <div><dt>Beyond the lab</dt><dd>Photography</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 02 Research ================= -->
+    <section class="section" id="research" aria-labelledby="research-title">
+      <div class="container section-grid">
+        <header class="section-head">
+          <span class="section-no">02</span>
+          <h2 id="research-title">Research</h2>
+        </header>
+
+        <div>
+          <p class="deck">From atoms to reaction rates.</p>
+          <div class="prose">
+            <p>
+              My work links atomistic simulation with reaction kinetics. Machine-learning force
+              fields let me reach length and time scales that first-principles calculations alone
+              cannot, and what they reveal about surface structure and adsorbate interactions feeds
+              into microkinetic models of catalytic activity.
+            </p>
+          </div>
+
+          <ol class="focus">
+            <li>
+              <span class="focus-no">01</span>
+              <h3>Machine-learning interatomic potentials</h3>
+              <p>Training and applying ML force fields that bring near first-principles accuracy to large-scale, GPU-accelerated molecular dynamics.</p>
+            </li>
+            <li>
+              <span class="focus-no">02</span>
+              <h3>Multiscale modeling</h3>
+              <p>Carrying atomistic insight into microkinetic models, including coverage-dependent lateral interactions between adsorbates.</p>
+            </li>
+            <li>
+              <span class="focus-no">03</span>
+              <h3>Heterogeneous catalysis</h3>
+              <p>Copper catalysts for the water–gas shift reaction: how supported Cu clusters and coadsorbed CO shape activity.</p>
+            </li>
+          </ol>
+
+          <dl class="toolkit">
+            <div>
+              <dt>Methods</dt>
+              <dd>
+                <ul class="tags">
+                  <li>DFT</li>
+                  <li>ML force fields</li>
+                  <li>Molecular dynamics</li>
+                  <li>Microkinetic modeling</li>
+                </ul>
+              </dd>
+            </div>
+            <div>
+              <dt>Tools</dt>
+              <dd>
+                <ul class="tags">
+                  <li>Python</li>
+                  <li>PyTorch</li>
+                  <li>MACE</li>
+                  <li>LAMMPS</li>
+                  <li>PLUMED</li>
+                  <li>Kokkos / CUDA</li>
+                  <li>HPC (PBS)</li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 03 Publications ================= -->
+    <section class="section" id="publications" aria-labelledby="publications-title">
+      <div class="container section-grid">
+        <header class="section-head">
+          <span class="section-no">03</span>
+          <h2 id="publications-title">Publications</h2>
+        </header>
+
+        <div>
+          <p class="deck">Peer-reviewed articles.</p>
+
+          <!-- To add a paper, copy the whole <li class="pub"> … </li> block and put the newest first. -->
+          <ol class="pubs">
+            <li class="pub">
+              <div class="pub-year">2026</div>
+              <div>
+                <h3 class="pub-title">
+                  <a href="https://doi.org/10.1039/D5CP05031F" target="_blank" rel="noopener">CO coadsorption effects on the water–gas shift reaction over Cu clusters on Cu(111): insights from the machine learning force field and microkinetic modeling</a>
+                </h3>
+                <p class="pub-authors"><strong>M. F. Anshor</strong>, H. H. Halim, Y. Morikawa</p>
+                <p class="pub-venue"><i>Physical Chemistry Chemical Physics</i> <b>28</b>, 11187–11197 (2026)</p>
+                <p class="pub-summary">
+                  Combines a machine-learning force field with DFT and microkinetic modeling to show how
+                  coadsorbed CO shapes water–gas shift activity on Cu<sub>3</sub>, Cu<sub>4</sub> and
+                  Cu<sub>7</sub> clusters supported on Cu(111).
+                </p>
+                <div class="pub-actions">
+                  <a class="chip" href="https://doi.org/10.1039/D5CP05031F" target="_blank" rel="noopener">
+                    DOI
+                    <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+                  </a>
+                  <button class="chip bib-toggle" type="button" aria-expanded="false" aria-controls="bib-anshor2026">
+                    BibTeX
+                    <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+                  </button>
+                </div>
+                <div class="bib" id="bib-anshor2026" hidden>
+<pre>@article{Anshor2026,
+  author  = {Anshor, Muhammad Fadhlan and Halim, Harry Handoko and Morikawa, Yoshitada},
+  title   = {{CO} coadsorption effects on the water--gas shift reaction over {Cu} clusters on {Cu(111)}: insights from the machine learning force field and microkinetic modeling},
+  journal = {Physical Chemistry Chemical Physics},
+  year    = {2026},
+  volume  = {28},
+  number  = {18},
+  pages   = {11187--11197},
+  doi     = {10.1039/D5CP05031F}
+}</pre>
+                  <button class="chip bib-copy" type="button">Copy</button>
+                </div>
+              </div>
+            </li>
+          </ol>
+
+          <!-- Optional: add your Google Scholar or ORCID profile here, e.g.
+          <p class="more-link"><a class="link" href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener">Google Scholar</a></p>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 04 Photography ================= -->
+    <section class="section darkroom" id="photography" aria-labelledby="photography-title">
+      <div class="container section-grid">
+        <header class="section-head">
+          <span class="section-no">04</span>
+          <h2 id="photography-title">Photography</h2>
+        </header>
+
+        <div>
+          <p class="deck">Frames from outside the lab.</p>
+          <div class="prose">
+            <p>A small, changing selection of my photographs, made in the hours between simulations.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <!--
+          HOW TO ADD YOUR PHOTOS
+          1. Create a folder called "photos" next to this file.
+          2. Upload your images as 01.jpg, 02.jpg … 06.jpg
+             (about 2000 px on the long edge keeps the page fast).
+          3. Edit the alt text, title and details of each frame below.
+          A frame without a photo simply shows an empty frame, so nothing ever looks broken.
+          For more photos, copy a <figure class="shot"> block and change the number.
+        -->
+        <div class="gallery">
+          <figure class="shot">
+            <a class="shot-frame" href="photos/01.jpg">
+              <img src="photos/01.jpg" alt="Describe the photo" loading="lazy" decoding="async" />
+            </a>
+            <figcaption>
+              <span class="shot-no">01</span>
+              <span class="shot-title">Title</span>
+              <span class="shot-meta">Place, Year · ƒ/2.8 · 1/250 s · ISO 200</span>
+            </figcaption>
+          </figure>
+
+          <figure class="shot">
+            <a class="shot-frame" href="photos/02.jpg">
+              <img src="photos/02.jpg" alt="Describe the photo" loading="lazy" decoding="async" />
+            </a>
+            <figcaption>
+              <span class="shot-no">02</span>
+              <span class="shot-title">Title</span>
+              <span class="shot-meta">Place, Year · ƒ/2.8 · 1/250 s · ISO 200</span>
+            </figcaption>
+          </figure>
+
+          <figure class="shot">
+            <a class="shot-frame" href="photos/03.jpg">
+              <img src="photos/03.jpg" alt="Describe the photo" loading="lazy" decoding="async" />
+            </a>
+            <figcaption>
+              <span class="shot-no">03</span>
+              <span class="shot-title">Title</span>
+              <span class="shot-meta">Place, Year · ƒ/2.8 · 1/250 s · ISO 200</span>
+            </figcaption>
+          </figure>
+
+          <figure class="shot">
+            <a class="shot-frame" href="photos/04.jpg">
+              <img src="photos/04.jpg" alt="Describe the photo" loading="lazy" decoding="async" />
+            </a>
+            <figcaption>
+              <span class="shot-no">04</span>
+              <span class="shot-title">Title</span>
+              <span class="shot-meta">Place, Year · ƒ/2.8 · 1/250 s · ISO 200</span>
+            </figcaption>
+          </figure>
+
+          <figure class="shot">
+            <a class="shot-frame" href="photos/05.jpg">
+              <img src="photos/05.jpg" alt="Describe the photo" loading="lazy" decoding="async" />
+            </a>
+            <figcaption>
+              <span class="shot-no">05</span>
+              <span class="shot-title">Title</span>
+              <span class="shot-meta">Place, Year · ƒ/2.8 · 1/250 s · ISO 200</span>
+            </figcaption>
+          </figure>
+
+          <figure class="shot">
+            <a class="shot-frame" href="photos/06.jpg">
+              <img src="photos/06.jpg" alt="Describe the photo" loading="lazy" decoding="async" />
+            </a>
+            <figcaption>
+              <span class="shot-no">06</span>
+              <span class="shot-title">Title</span>
+              <span class="shot-meta">Place, Year · ƒ/2.8 · 1/250 s · ISO 200</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- Optional: link to your photography profile, e.g.
+        <p class="more-link"><a class="link" href="https://www.instagram.com/YOUR_HANDLE/" target="_blank" rel="noopener">More on Instagram</a></p>
+        -->
+      </div>
+    </section>
+
+    <!-- ================= 05 Contact ================= -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container section-grid">
+        <header class="section-head">
+          <span class="section-no">05</span>
+          <h2 id="contact-title">Contact</h2>
+        </header>
+
+        <div>
+          <p class="deck">Let’s talk.</p>
+          <div class="prose">
+            <p>
+              I’m always glad to hear about machine-learning potentials, catalysis and possible
+              collaborations, or simply to talk cameras.
+            </p>
+          </div>
+
+          <a class="email-link" href="mailto:mfadhlan@cp.prec.eng.osaka-u.ac.jp">
+            mfadhlan@cp.prec.eng.osaka-u.ac.jp
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+          </a>
+
+          <ul class="contact-list">
+            <li>
+              <a href="https://github.com/mfadhlan21" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+                <span>GitHub</span>
+                <span class="handle">github.com/mfadhlan21</span>
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/muhammad-fadhlan-anshor-007919164" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
+                <span>LinkedIn</span>
+                <span class="handle">Muhammad Fadhlan Anshor</span>
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Muhammad Fadhlan Anshor</p>
+      <p class="mono">Osaka, Japan · 34.69° N, 135.50° E</p>
+      <a class="to-top" href="#top">
+        Back to top
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+      </a>
+    </div>
   </footer>
 
+  <!-- Photo viewer -->
+  <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+    <button class="lb-btn lb-close" type="button" aria-label="Close">
+      <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+    </button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Previous photo">
+      <svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg>
+    </button>
+    <button class="lb-btn lb-next" type="button" aria-label="Next photo">
+      <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg>
+    </button>
+    <figure class="lb-figure">
+      <figcaption></figcaption>
+    </figure>
+  </dialog>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
+
+      // Mobile menu
+      var header = document.querySelector('.site-header');
+      var toggle = document.querySelector('.nav-toggle');
+
+      function setMenu(open) {
+        header.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+      }
+
+      toggle.addEventListener('click', function () {
+        setMenu(!header.classList.contains('is-open'));
+      });
+      header.querySelectorAll('.nav-list a').forEach(function (link) {
+        link.addEventListener('click', function () { setMenu(false); });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setMenu(false);
+      });
+
+      // BibTeX: show / hide and copy
+      document.querySelectorAll('.bib-toggle').forEach(function (button) {
+        var panel = document.getElementById(button.getAttribute('aria-controls'));
+        button.addEventListener('click', function () {
+          var open = button.getAttribute('aria-expanded') !== 'true';
+          button.setAttribute('aria-expanded', String(open));
+          panel.hidden = !open;
+        });
+      });
+
+      document.querySelectorAll('.bib-copy').forEach(function (button) {
+        if (!navigator.clipboard) { button.hidden = true; return; }
+        button.addEventListener('click', function () {
+          var text = button.parentElement.querySelector('pre').textContent;
+          navigator.clipboard.writeText(text).then(function () {
+            button.textContent = 'Copied';
+            setTimeout(function () { button.textContent = 'Copy'; }, 1600);
+          });
+        });
+      });
+
+      // Gallery: frames whose photo exists fade in; the rest stay as empty frames
+      var shots = Array.prototype.slice.call(document.querySelectorAll('.shot'));
+
+      shots.forEach(function (shot) {
+        var img = shot.querySelector('img');
+        var frame = shot.querySelector('.shot-frame');
+
+        function ready() {
+          shot.classList.add('is-loaded');
+          shot.removeAttribute('aria-hidden');
+        }
+
+        function missing() {
+          shot.classList.remove('is-loaded');
+          frame.removeAttribute('href');
+          shot.setAttribute('aria-hidden', 'true');
+        }
+
+        if (img.complete) {
+          if (img.naturalWidth > 0) ready(); else missing();
+        } else {
+          img.addEventListener('load', ready, { once: true });
+          img.addEventListener('error', missing, { once: true });
+        }
+      });
+
+      // Photo viewer
+      var box = document.getElementById('lightbox');
+      if (!box || typeof box.showModal !== 'function') return;
+
+      var boxImg = document.createElement('img');
+      var boxCaption = box.querySelector('figcaption');
+      boxCaption.before(boxImg);
+      var prev = box.querySelector('.lb-prev');
+      var next = box.querySelector('.lb-next');
+      var list = [];
+      var index = 0;
+
+      function render() {
+        var shot = list[index];
+        var img = shot.querySelector('img');
+        boxImg.src = img.currentSrc || img.src;
+        boxImg.alt = img.alt;
+        boxCaption.replaceChildren.apply(boxCaption, Array.prototype.map.call(
+          shot.querySelector('figcaption').childNodes,
+          function (node) { return node.cloneNode(true); }
+        ));
+        prev.hidden = next.hidden = list.length < 2;
+      }
+
+      function step(delta) {
+        index = (index + delta + list.length) % list.length;
+        render();
+      }
+
+      shots.forEach(function (shot) {
+        shot.querySelector('.shot-frame').addEventListener('click', function (e) {
+          e.preventDefault();
+          if (!shot.classList.contains('is-loaded')) return;
+          list = shots.filter(function (s) { return s.classList.contains('is-loaded'); });
+          index = list.indexOf(shot);
+          render();
+          box.showModal();
+        });
+      });
+
+      prev.addEventListener('click', function () { step(-1); });
+      next.addEventListener('click', function () { step(1); });
+      box.querySelector('.lb-close').addEventListener('click', function () { box.close(); });
+
+      box.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') step(-1);
+        if (e.key === 'ArrowRight') step(1);
+      });
+
+      box.addEventListener('click', function (e) {
+        if (e.target === box || e.target.classList.contains('lb-figure')) box.close();
+      });
+
+      box.addEventListener('close', function () { boxImg.removeAttribute('src'); });
+    })();
+  </script>
 </body>
 </html>
